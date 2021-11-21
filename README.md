@@ -1,4 +1,4 @@
-# dbms_assignment
+# DBMS Assignment
 ## Dependencies
 python3
 PostgreSQL : [download/install instructions](https://www.postgresql.org/download/linux/ubuntu/)
@@ -6,7 +6,7 @@ PostgreSQL : [download/install instructions](https://www.postgresql.org/download
 sudo apt install libpq-dev python3-dev
 ```
 ## Frontend/Interface Installation
-Change directory to interface and run the following command
+Change directory to 'interface' folder and run the following command
 ```
 python3 -m pip install -r requirements.txt
 ```

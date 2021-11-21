@@ -78,6 +78,7 @@ def del_challanbyID():
             """,
             [f['query'],]
         )
+        conn.commit()
         cur.close()
         conn.close()
         return render_template("indel.html",heading="Delete challan by challan number/ID", change="deleted", route="/delchallanbyID")
@@ -98,6 +99,7 @@ def del_challanbyRC():
             """,
             [f['query'],]
         )
+        conn.commit()
         cur.close()
         conn.close()
         return render_template("indel.html",heading="Delete challan by RC", change="deleted", route="/delchallanbyrc")
@@ -118,6 +120,7 @@ def del_challanbyaadhaar():
             """,
             [f['query'],]
         )
+        conn.commit()
         cur.close()
         conn.close()
         return render_template("indel.html",heading="Delete challan by aadhaar", change="deleted", route="/delchallanbyaadhaar")

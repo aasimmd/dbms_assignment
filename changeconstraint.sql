@@ -1,0 +1,44 @@
+\c vehicle;
+
+--BEFORE INSERT/DELETE OPERATIONS FOR ADDING A VEHICLE OR NEW OWNER TO THE DB
+
+ALTER TABLE Vehicle
+DROP CONSTRAINT vehicle_pkey;
+
+ALTER TABLE Insurance
+DROP CONSTRAINT Insurance_pkey;
+
+ALTER TABLE Challan
+DROP CONSTRAINT challan_pkey;
+
+ALTER TABLE Owner
+DROP CONSTRAINT Owner_pkey;
+
+ALTER TABLE Owner_RC_Number
+DROP CONSTRAINT Owner_RC_Number_pkey;
+
+ALTER TABLE Emergency_Contact
+DROP CONSTRAINT Emergency_Contact_pkey;
+
+
+--AFTER INSERT/DELETE OPERATIONS FOR ADDING A VEHICLE OR NEW OWNER TO THE DB
+ALTER TABLE Vehicle
+ADD FOREIGN KEY (AadhaarNo) REFERENCES Owner(AadhaarNo),
+ADD FOREIGN KEY (ModelNo) REFERENCES Vehicle_details(Model_Number);
+
+ALTER TABLE Insurance
+ADD FOREIGN KEY (RC_Number) REFERENCES Vehicle(RC_Number);
+
+ALTER TABLE Challan
+ADD FOREIGN KEY (RC_Number) REFERENCES Vehicle(RC_Number),
+ADD FOREIGN KEY (AadhaarNo) REFERENCES Owner(AadhaarNo),
+ADD FOREIGN KEY (LicenseNo) REFERENCES License(License_Number);
+
+ALTER TABLE Owner
+ADD FOREIGN KEY (LicenseNo) REFERENCES License(License_Number);
+
+ALTER TABLE Owner_RC_Number
+ADD FOREIGN KEY (AadhaarNo) REFERENCES Owner(AadhaarNo);
+
+ALTER TABLE Emergency_Contact
+ADD FOREIGN KEY (RC_Number) REFERENCES Vehicle(RC_Number);

@@ -1,0 +1,3 @@
+sudo apt install libpq-dev python3-dev
+OR
+pip install psycopg2-binary

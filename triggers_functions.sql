@@ -1,3 +1,5 @@
+\c vehicle;
+
 DROP table totalchallan;
 
 create table totalchallan(rc_number varchar primary key, total_amount integer);
